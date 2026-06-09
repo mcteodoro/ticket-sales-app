@@ -19,14 +19,14 @@ export default async function LoginPage() {
   return (
     
     <main className="flex min-h-screen items-center justify-center bg-background px-4 py-10">
-      <section className="w-full max-w-md rounded-lg border border-slate-200 bg-white p-6 shadow-sm">
+      <section className="w-full max-w-xl rounded-lg border border-slate-200 bg-white p-6 shadow-sm">
         
         <div className="mb-6">
   <Image
     src="/amae-promoter.jpg.jpeg"
     alt="Amaê Festival"
-    width={500}
-    height={500}
+    width={350}
+    height={350}
     className="mx-auto rounded-lg"
     priority
   />
