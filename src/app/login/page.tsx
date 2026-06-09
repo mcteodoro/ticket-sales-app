@@ -23,7 +23,7 @@ export default async function LoginPage() {
         
         <div className="mb-6">
   <Image
-    src="/amae-promoter.jpg"
+    src="/amae-promoter.jpg.jpeg"
     alt="Amaê Festival"
     width={500}
     height={500}
