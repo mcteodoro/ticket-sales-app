@@ -33,7 +33,7 @@ const initialState: FormState = {
   email: "",
   phone: "",
   cpf: "",
-  sector: "",
+  sector: "Pista",
   batch: "Promo",
   paymentType: "Full",
   totalPrice: "",
@@ -260,6 +260,10 @@ export function CreateSaleForm() {
   defaultValue="PISTA"
   required
   className="w-full rounded-md border border-slate-300 px-3 py-2"
+  value={form.sector}
+onChange={(event) =>
+  updateField("sector", event.target.value)
+}
 >
   <option value="PISTA">PISTA</option>
   <option value="FRONTSTAGE">FRONTSTAGE</option>
