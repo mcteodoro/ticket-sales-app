@@ -340,18 +340,17 @@ export function CreateSaleForm() {
                 Number of installments
               </label>
               <select
-                id="installments"
-                value={form.installments}
-                onChange={(event) => updateField("installments", Number(event.target.value))}
-                disabled={form.paymentType === "Full"}
-                className="mt-1 h-10 w-full rounded-md border border-slate-300 px-3 text-sm outline-none transition focus:border-emerald-600 focus:ring-2 focus:ring-emerald-100 disabled:bg-slate-100"
-              >
-                {Array.from({ length: maxInstallments }, (_, index) => index + 1).map((count) => (
-                  <option key={count} value={count} disabled={form.paymentType === "Installments" && count === 1}>
-                    {count}
-                  </option>
-                ))}
-              </select>
+  name="paymentType"
+  value={form.paymentType}
+  onChange={(event) =>
+    updateField("paymentType", event.target.value as PaymentType)
+  }
+  required
+  className="mt-1 h-10 w-full rounded-md border border-slate-300 px-3"
+>
+  <option value="Full">Integral</option>
+  <option value="Installments">Parcelado</option>
+</select>
             </div>
           </div>
 
