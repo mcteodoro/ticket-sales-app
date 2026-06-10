@@ -235,32 +235,35 @@ export function CreateSaleForm() {
             </div>
 
             <div>
-              <label className="text-sm font-medium text-slate-700" htmlFor="sector">
-                Sector
-              </label>
-              <input
-                id="sector"
-                required
-                value={form.sector}
-                onChange={(event) => updateField("sector", event.target.value)}
-                className="mt-1 h-10 w-full rounded-md border border-slate-300 px-3 text-sm outline-none transition focus:border-emerald-600 focus:ring-2 focus:ring-emerald-100"
-              />
+              <select
+  name="sector"
+  defaultValue="PISTA"
+  required
+  className="w-full rounded-md border border-slate-300 px-3 py-2"
+>
+  <option value="PISTA">PISTA</option>
+  <option value="FRONTSTAGE">FRONTSTAGE</option>
+  <option value="LOUNGE">LOUNGE</option>
+  <option value="BACKSTAGE ECO">BACKSTAGE ECO</option>
+</select>
             </div>
 
             <div>
               <label className="text-sm font-medium text-slate-700" htmlFor="batch">
                 Ticket batch
               </label>
-              <select
-                id="batch"
-                value={form.batch}
-                onChange={(event) => updateField("batch", event.target.value as TicketBatch)}
-                className="mt-1 h-10 w-full rounded-md border border-slate-300 px-3 text-sm outline-none transition focus:border-emerald-600 focus:ring-2 focus:ring-emerald-100"
-              >
-                {BATCHES.map((batch) => (
-                  <option key={batch}>{batch}</option>
-                ))}
-              </select>
+           <select
+  name="batch"
+  defaultValue="PROMO"
+  required
+  className="w-full rounded-md border border-slate-300 px-3 py-2"
+>
+  <option value="PROMO">PROMO</option>
+  <option value="LOTE 1">LOTE 1</option>
+  <option value="LOTE 2">LOTE 2</option>
+  <option value="LOTE 3">LOTE 3</option>
+  <option value="LOTE 4">LOTE 4</option>
+</select>
             </div>
 
             <div>
