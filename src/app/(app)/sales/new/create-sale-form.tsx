@@ -330,7 +330,8 @@ export function CreateSaleForm() {
                 disabled={maxInstallments === 1}
                 className="mt-1 h-10 w-full rounded-md border border-slate-300 px-3 text-sm outline-none transition focus:border-emerald-600 focus:ring-2 focus:ring-emerald-100 disabled:bg-slate-100"
               >
-                
+                 <option value="Full">Integral</option>
+  <option value="Installment">Parcelado</option>
               </select>
             </div>
 
@@ -347,8 +348,7 @@ export function CreateSaleForm() {
   required
   className="mt-1 h-10 w-full rounded-md border border-slate-300 px-3"
 >
-  <option value="Full">Integral</option>
-  <option value="Installment">Parcelado</option>
+ 
 </select>
             </div>
           </div>
