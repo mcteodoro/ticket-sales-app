@@ -19,6 +19,7 @@ type FormState = {
   name: string;
   email: string;
   phone: string;
+  cpf: string;
   sector: string;
   batch: TicketBatch;
   paymentType: PaymentType;
@@ -31,6 +32,7 @@ const initialState: FormState = {
   name: "",
   email: "",
   phone: "",
+  cpf: "",
   sector: "",
   batch: "Promo",
   paymentType: "Full",
@@ -131,11 +133,12 @@ export function CreateSaleForm() {
       const { data: customer, error: customerError } = await supabase
         .from("customers")
         .insert({
-          user_id: user.id,
-          name: form.name.trim(),
-          email: form.email.trim(),
-          phone: form.phone.trim(),
-        })
+  user_id: user.id,
+  name: form.name.trim(),
+  email: form.email.trim(),
+  phone: form.phone.trim(),
+  cpf: form.cpf.trim(),
+} as any)
         .select()
         .single();
 
@@ -220,7 +223,24 @@ export function CreateSaleForm() {
                 className="mt-1 h-10 w-full rounded-md border border-slate-300 px-3 text-sm outline-none transition focus:border-emerald-600 focus:ring-2 focus:ring-emerald-100"
               />
             </div>
+<div>
+  <label
+    className="text-sm font-medium text-slate-700"
+    htmlFor="cpf"
+  >
+    CPF
+  </label>
 
+ <input
+  id="cpf"
+  name="cpf"
+  type="text"
+  placeholder="000.000.000-00"
+  value={form.cpf}
+  onChange={(event) => updateField("cpf", event.target.value)}
+  className="mt-1 w-full rounded-md border border-slate-300 px-3 py-2"
+/>
+</div>
             <div>
               <label className="text-sm font-medium text-slate-700" htmlFor="phone">
                 Phone number
