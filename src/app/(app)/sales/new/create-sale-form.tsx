@@ -335,7 +335,7 @@ export function CreateSaleForm() {
   className="mt-1 h-10 w-full rounded-md border border-slate-300 px-3"
 >
   <option value="Full">Integral</option>
-  <option value="Installment">Parcelado</option>
+  <option value="Installments">Parcelado</option>
 </select>
             </div>
 
