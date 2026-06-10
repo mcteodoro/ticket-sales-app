@@ -324,15 +324,19 @@ export function CreateSaleForm() {
               <label className="text-sm font-medium text-slate-700" htmlFor="paymentType">
                 Payment type
               </label>
-              <select
-                id="paymentType"
-                value={form.paymentType}
-                onChange={(event) => updatePaymentType(event.target.value as PaymentType)}
-                disabled={maxInstallments === 1}
-                className="mt-1 h-10 w-full rounded-md border border-slate-300 px-3 text-sm outline-none transition focus:border-emerald-600 focus:ring-2 focus:ring-emerald-100 disabled:bg-slate-100"
-              >
-                
-              </select>
+             <select
+  id="paymentType"
+  name="paymentType"
+  value={form.paymentType}
+  onChange={(event) =>
+    updatePaymentType(event.target.value as PaymentType)
+  }
+  required
+  className="mt-1 h-10 w-full rounded-md border border-slate-300 px-3"
+>
+  <option value="Full">Integral</option>
+  <option value="Installment">Parcelado</option>
+</select>
             </div>
 
             <div>
@@ -340,17 +344,24 @@ export function CreateSaleForm() {
                 Number of installments
               </label>
               <select
-  name="paymentType"
-  value={form.paymentType}
+  id="installments"
+  name="installments"
+  value={form.installments}
   onChange={(event) =>
-    updateField("paymentType", event.target.value as PaymentType)
+    updateField("installments", Number(event.target.value))
   }
   required
+  disabled={form.paymentType === "Full"}
   className="mt-1 h-10 w-full rounded-md border border-slate-300 px-3"
 >
-   <option value="Full">Integral</option>
-  <option value="Installments">Parcelado</option>
- 
+  {Array.from(
+    { length: form.paymentType === "Full" ? 1 : maxInstallments },
+    (_, index) => index + 1
+  ).map((number) => (
+    <option key={number} value={number}>
+      {number}
+    </option>
+  ))}
 </select>
             </div>
           </div>
